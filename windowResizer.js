@@ -13,6 +13,7 @@
 		this.checkID = function (id) {
 			var result = false;
 			storage.forEach(function(el){
+				if (!el) return;
 				if (el.id === id && !result) {
 					result = true;
 				}
@@ -23,6 +24,7 @@
 		this.remove = function(id) {
 			var result = false;
 			storage.forEach(function(el, index, arr){
+				if (!el) return;
 				if (el.id === id) {
 					arr.splice(index, 1);
 					result = true;
@@ -37,7 +39,7 @@
 
 			do {
 				funcID = Math.floor(Math.random()*8917349726576234785);
-			} while ( !this.checkID(funcID) );
+			} while ( this.checkID(funcID) );
 
 			storage.push({
 				id: funcID,
