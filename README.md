@@ -5,10 +5,10 @@ Bind your listeners to the only one delayed-"resize" event instead of copying th
 
 __Add your listener (and get an ID key):__
 ```
-var callbackID = windowResizer.add( yourFunc );
+var callbackID = windowResizer.queue.add( yourFunc );
 ```
 
 __Remove your listener by ID key (and get boolean result):__
 ```
-var removedORnot = windowResizer.remove( callbackID );
+var removedORnot = windowResizer.queue.remove( callbackID );
 ```
