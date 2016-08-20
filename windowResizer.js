@@ -1,12 +1,11 @@
-(function (window) {
-
-	var resizer = window.windowResizer;
+(function () {
 	
-	if (resizer) {
-		console.log('[ resizer has been already initialized ]');
+	if (window.windowResizer) {
+		console.log('[ window.windowResizer has been already initialized ]');
+		return;
 	}
 	
-	resizer = resizer || {};
+	var resizer = window.windowResizer || {};
 
 	resizer.queue = (new function(){
 		var storage = [];
@@ -50,19 +49,21 @@
 		};
 
 		this.run = function() {
-			storage.forEach(function(func){
-				setTimeout(func, 0);
+			storage.forEach(function(el){
+				setTimeout(el.func, 0);
 			});
 		};
-	})();
+	}());
 
 	resizer.timerID = 0;
 
+	window.windowResizer = resizer;
+
 	window.addEventListener('resize', function() {
-		clearTimeout( window.windowResizer.timerID );
-		window.windowResizer.timerID = setTimeout(function() {
-			window.windowResizer.queue.run();
+		clearTimeout( windowResizer.timerID );
+		windowResizer.timerID = setTimeout(function() {
+			windowResizer.queue.run();
 		}, 500);
 	}, false);
 
-})(window);
+})();
