@@ -1,0 +1,26 @@
+{
+  "name": "js-client-window-resizer",
+  "homepage": "https://github.com/rockfield/js-client-window-resizer",
+  "authors": [
+    "philipp <philipp.b@ya.ru>"
+  ],
+  "description": "It uses delayed window.resize listener (with setTimeout). Bind your listeners to the only one delayed-\"resize\" event instead of copying that code.",
+  "main": "windowResizer.js",
+  "keywords": [
+    "js",
+    "javascript",
+    "resizer",
+    "resize",
+    "window",
+    "client",
+    "browser"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
