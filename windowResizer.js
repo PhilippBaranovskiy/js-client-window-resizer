@@ -32,7 +32,7 @@
 			return result;
 		};
 
-		this.add = function (func) {
+		this.add = function (func, force) {
 
 			var funcID;
 
@@ -44,6 +44,10 @@
 				id: funcID,
 				func: func
 			});
+
+			if ( force ) {
+				setTimeout(func, 10);
+			}
 
 			return funcID;
 		};
